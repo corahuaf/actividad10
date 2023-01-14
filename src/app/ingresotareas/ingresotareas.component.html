@@ -1,0 +1,16 @@
+<div class="grid grid-cols-2 place-items-center pt-10">
+  <div class="grid-col-span-1 pt-10">
+    <form class="bg-white p-6 rounded-lg w-96 ml-40" [formGroup]="formulario" (submit)="submitForm()">
+      <div class="mb-4">
+        <input class="border border-gray-400 p-2 rounded-lg w-full" [(ngModel)]="tarea" type="text" formControlName="name" id="name" name="name" placeholder="Ingrese nombre de tarea" >
+      </div>
+      <div class="mb-4">
+        <textarea class="border border-gray-400 p-2 rounded-lg w-full" id="description" formControlName="description" name="description" placeholder="Ingrese descripcion" rows="5" ></textarea>
+      </div>    
+      <button class=" disabled:opacity-50 disabled:pointer-events-none bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 w-full rounded-lg" [disabled]="formulario.invalid" >Guardar</button>
+  </form>
+  </div>
+  <div class="grid-col-span-1 pt-10">
+    <app-listatareas [listas]="lista"></app-listatareas>
+  </div> 
+</div>
